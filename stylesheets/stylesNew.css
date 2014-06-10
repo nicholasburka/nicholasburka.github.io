@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+* {
+  background: #0F001F;
+  color: #FFFFFF;
+}
+
+#life {
+  background: #FF00FF;
+  color: #000000;
+  font-family: monospace;
+  margin-left: 10px;
+}
+
+#life a {
+  background: #FF00FF;
+  color: #000000;
+  text-decoration: none;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+}
+
+#life a:hover {
+  color: #FFFFFF;
+}
+
+.view {
+  /* background: #FFFFFF; */
+}
+
+h1 {
+  color: #00FFFF;
+  font-size: 200%;
+  font-family: sans-serif;
+  font-style: normal;
+  -webkit-transition: font-style 2s, transform .25s;
+  transition: font-style 2s, transform .25s;
+}
+
+h1:hover {
+  /* color: #FFFF00; 
+  font-style: oblique; */
+  -webkit-transform: skewX(-13deg);
+  transform: skewX(-13deg);
+}
