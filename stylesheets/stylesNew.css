@@ -16,8 +16,8 @@
   background: #FF00FF;
   color: #000000;
   text-decoration: none;
-  -webkit-transition: color 1s;
-  transition: color 1s;
+  -webkit-transition: color .6s;
+  transition: color .6s;
 }
 
 #life a:hover {
