@@ -14,7 +14,17 @@ header {
   background: #FF00FF;
   color: #000000;
   font-family: monospace;
-  margin-left: 10px;
+  margin-left: 0px;
+}
+
+h2 {
+  margin-left: 0px;
+  margin-top: 10px;
+  color: #550000;
+}
+
+#other {
+  margin-top: 70px;
 }
 
 #life a {
@@ -31,6 +41,7 @@ header {
 
 .view {
   /* background: #FFFFFF; */
+  margin-left: 10px;
 }
 
 h1 {

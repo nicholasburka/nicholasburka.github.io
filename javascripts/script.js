@@ -101,12 +101,16 @@ function theoMouseOut() {
 	var canvas = document.getElementById("theoCanvas");
 	var ctx = canvas.getContext("2d");
 	//ctx.clearRect(0,0,canvas.width,canvas.height);
-	ctx.clearRect(10,canvas.height-180,100,100);
+	//ctx.clearRect(10,canvas.height-180,100,100);
 	var img = new Image();
 	img.src = "imgs/theoHead.png";
 	img.onload = function() {
 		ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
 	}
+	ctx.font = "20px Arial";
+	ctx.fillStyle = "white";
+	ctx.fillText("fuck", 10, canvas.height-140);
+	ctx.fillText("yooo", 10, canvas.height-110);
 }
 
 function theoClick(event) {
