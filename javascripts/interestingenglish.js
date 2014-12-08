@@ -14,7 +14,7 @@ var english = function() {
 	SE.init({
 	    clientId: id,
 	    key: myKey,
-	    channelUrl: local,
+	    channelUrl: myKey,
 	    complete: function (data) {  }
 	});
 
