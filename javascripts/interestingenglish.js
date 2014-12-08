@@ -14,7 +14,7 @@ var english = function() {
 	SE.init({
 	    clientId: id,
 	    key: myKey,
-	    channelUrl: myKey,
+	    channelUrl: OAuthDomain,
 	    complete: function (data) {  }
 	});
 
