@@ -8,7 +8,7 @@ var english = function() {
 */
 	var id = 3995;
 	var myKey = "M)BVAu6uV98hHLXr4b2i*w((";
-	var OAuthDomain = "nicholasburka.github.io";
+	var OAuthDomain = "http://nicholasburka.github.io";
 	var local = "file:///Users/nburka/Desktop/programming/web/javascript/nicholasburka.github.io/index.html";
 
 	SE.init({
