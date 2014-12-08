@@ -66,6 +66,15 @@ form, img {
   z-index: 1;
 }
 
+li {
+  margin-top: 10px;
+}
+
+ul {
+    list-style: square outside none;
+    list-style-image: url(imgs/flowers1.png);
+}
+
 canvas {
   background: #FFFFFF;
   margin-left: 10px;

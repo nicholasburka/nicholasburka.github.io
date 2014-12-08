@@ -21,11 +21,12 @@ function change_hw(id, h, w) {
 
 function show_pakdees() {
 	var b = document.getElementById("pakbutton");
+	var IMG_SIZE = 100;
 	if (!clicked) {
 	clicked = true;
-	show_image("imgs/pak1.jpg", "pakdeeWrapper", 100, 100, "A photo of Pakdee", "pakdee", "pakdee1");
-	show_image("imgs/pak2.jpg", "pakdeeWrapper", 100, 100, "A photo of Pakdee", "pakdee", "pakdee2");
-	show_image("imgs/pak3.jpg", "pakdeeWrapper", 100, 100, "A photo of Pakdee", "pakdee", "pakdee3");
+	show_image("imgs/pak1.jpg", "pakdeeWrapper", IMG_SIZE, IMG_SIZE, "A photo of Pakdee", "pakdee", "pakdee1");
+	show_image("imgs/pak2.jpg", "pakdeeWrapper", IMG_SIZE, IMG_SIZE, "A photo of Pakdee", "pakdee", "pakdee2");
+	show_image("imgs/pak3.jpg", "pakdeeWrapper", IMG_SIZE, IMG_SIZE, "A photo of Pakdee", "pakdee", "pakdee3");
 	change_hw("pakdee1", 100,100);
 	//b.parentNode.removeChild(b);
 	//it works!
