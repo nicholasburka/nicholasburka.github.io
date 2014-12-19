@@ -1,7 +1,7 @@
 on = true;
 
 var english = function() {
-	
+
 	var id = 3995;
 	var myKey = "M)BVAu6uV98hHLXr4b2i*w((";
 	var OAuthDomain = "http://nicholasburka.github.io";
@@ -12,7 +12,7 @@ var english = function() {
 	SE.init({
 	    clientId: id,
 	    key: myKey,
-	    channelUrl: local,
+	    channelUrl: OAuthDomain,
 	    complete: function (data) {  }
 	});
 
