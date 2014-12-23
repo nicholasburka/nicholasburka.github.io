@@ -60,10 +60,19 @@ h1:hover {
   transform: skewX(-13deg);
 }
 
+#aboutme {
+  display: none;
+  color: #00FFFF;
+}
+
+h1:hover + #aboutme {
+  display: block;
+}
+
 form, img {
   margin-left: 10px;
   margin-top: 10px;
-  z-index: 1;
+  /*z-index: 1;*/
 }
 
 li {

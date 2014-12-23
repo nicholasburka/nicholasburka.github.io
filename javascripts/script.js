@@ -1,6 +1,11 @@
 //Well hello, mobile broswers :)
 window.navigator.vibrate([200, 100, 200]);
 
+//TO DO:
+//generalize code:
+//  by making a remove element function
+//  by cleaning up booleans
+
 
 var pakdee = false;
 var theo = false;

@@ -42,10 +42,11 @@ var english = function() {
 				} else {
 					len = items[i]["answers"].length;
 				}
-			}
-			for (var j = 0; j < len; j++) {
-				tmp2.innerHTML = sorted[j]["body"];
-				div2.innerHTML = div2.innerHTML + "A: " + tmp2.textContent + "<br><br>";
+			
+				for (var j = 0; j < len; j++) {
+					tmp2.innerHTML = sorted[j]["body"];
+					div2.innerHTML = div2.innerHTML + "A: " + tmp2.textContent + "<br><br>";
+				} 
 			}
 			div2.innerHTML = div2.innerHTML + "</li><br>";
 		}
