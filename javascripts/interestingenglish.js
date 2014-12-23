@@ -33,16 +33,21 @@ var english = function() {
 		var len;
 		var sorted;
 		for (var i = 0; i < items.length - 1; i++) {
-			tmp.innerHTML = items[i]["body"];
-			div2.innerHTML = div2.innerHTML + "<li>" + "////Q: " + tmp.textContent + "<br><br>";
 			if (items[i]["answer_count"] > 0) {
+				//Add the question
+				tmp.innerHTML = items[i]["body"];
+				div2.innerHTML = div2.innerHTML + "<li>" + "////Q: " + tmp.textContent + "<br><br>";
+
+				//Sort the answers by score
 				sorted = items[i]["answers"].sort(sorte);
+				//If there are a lot of answers, only add the top three, else add all
 				if (NUM_ANSWERS < items[i]["answers"].length) {
 					len = NUM_ANSWERS;
 				} else {
 					len = items[i]["answers"].length;
 				}
-			
+
+				//Add the content to document
 				for (var j = 0; j < len; j++) {
 					tmp2.innerHTML = sorted[j]["body"];
 					div2.innerHTML = div2.innerHTML + "A: " + tmp2.textContent + "<br><br>";
