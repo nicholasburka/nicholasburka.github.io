@@ -33,6 +33,7 @@ var english = function() {
 		var len;
 		var sorted;
 		for (var i = 0; i < items.length - 1; i++) {
+			//if a question has been answered
 			if (items[i]["answer_count"] > 0) {
 				//Add the question
 				tmp.innerHTML = items[i]["body"];
@@ -52,8 +53,9 @@ var english = function() {
 					tmp2.innerHTML = sorted[j]["body"];
 					div2.innerHTML = div2.innerHTML + "A: " + tmp2.textContent + "<br><br>";
 				} 
+
+				div2.innerHTML = div2.innerHTML + "</li><br>";
 			}
-			div2.innerHTML = div2.innerHTML + "</li><br>";
 		}
 	}
 
