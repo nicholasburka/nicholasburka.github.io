@@ -17,6 +17,9 @@ header {
   margin-left: 0px;
 }
 
+p {
+}
+
 h2 {
   margin-left: 0px;
   margin-top: 10px;
@@ -116,6 +119,19 @@ canvas {
     0% {
         -webkit-transform: translateY(-40px);
     }*/
+}
+
+.blogpost {
+  text-align: center;
+  width: 80%;
+  max-width:80%;
+  word-wrap:break-word;
+  /*margin-left: auto;
+  margin-right: auto;*/
+}
+
+.date {
+  color: #55AAAA;
 }
 
 .pakdee {

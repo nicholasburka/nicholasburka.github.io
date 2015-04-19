@@ -10,6 +10,8 @@ window.navigator.vibrate([200, 100, 200]);
 var pakdee = false;
 var theo = false;
 var resumeThere = false;
+var jonThere = false;
+
 
 function show_image(src, target, width, height, alt, className, id) {
 	var img = new Image();
@@ -21,6 +23,11 @@ function show_image(src, target, width, height, alt, className, id) {
 	img.setAttribute("id", id);
 	document.getElementById(target).appendChild(img);
 	return img;
+}
+
+function change_hw(id, h, w) {
+	document.getElementById(id).style.height = h;
+	document.getElementById(id).style.width = w;
 }
 
 function resume() {/*
@@ -36,9 +43,15 @@ function resume() {/*
 	window.open("imgs/resume.pdf","_blank");
 }
 
-function change_hw(id, h, w) {
-	document.getElementById(id).style.height = h;
-	document.getElementById(id).style.width = w;
+function jon() {
+	if (!jonThere) {
+		init();
+	}
+	else {
+		var club = document.getElementById("sealClubbinJon");
+		club.parent.removeChild(club);
+	}
+	jonThere = !jonThere;
 }
 
 function show_pakdees() {
@@ -135,6 +148,10 @@ function theoClick(event) {
 	img.onload = function() {
 		ctx.drawImage(img, x-(IMGBOUND/2), y-(IMGBOUND/2), IMGBOUND, IMGBOUND);
 	}
+}
+
+function blog() {
+	window.open("blog.html", "_blank");
 }
 
 function deleteTheoCanvas() {
