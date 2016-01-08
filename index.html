@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description=" content="Nicholas Burka is an artificial intelligence enthusiast, programmer, and student of Cognitive Science. This is his personal webpage.">
     <title>NBURKA</title>
     <link rel="stylesheet" href="stylesheets/reset.css">
     <link rel="stylesheet" href="stylesheets/stylesNew.css">
     <script src="javascripts/script.js"></script>
     <script src="javascripts/interestingenglish.js"></script>
     <script src="javascripts/sealclub.js"></script>
+    <script src="javascripts/ripple.js"></script>
     <script type='text/javascript' src='https://api.stackexchange.com/js/2.0/all.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -39,6 +41,10 @@
 
         <div id="blog">
           <form> <input id="button" type="button" value="Blog" onclick="blog();"></form>
+        </div>
+
+        <div id="rippleWrapper">
+          <form><input id="rippleButton" type="button" value="Rippler" onclick="var rippler = new Rippler();"></form>
         </div>
 
         <!--<div id="sealWrapper">
