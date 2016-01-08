@@ -1,9 +1,9 @@
 
 var rippled = false;
 function Rippler() {
+	//makes sure only one rippler is created
 	if (rippled) return;
 	rippled = true;
-	//console.log("Creating rippler");
 
 	var bk_val = 40;
 	this.WHITE = [255, 255, 255, 255]; //white is the ripple color
@@ -12,6 +12,7 @@ function Rippler() {
 	this.height = 200;
 	this.width = 200;
 
+	//make the canvas
 	var div = document.getElementById("rippleWrapper");
 	this.canvas = document.createElement("canvas");
 	this.canvas.id = "ripple";
@@ -52,35 +53,48 @@ function Rippler() {
 		var img = new ImageData(orig.data, this.width, this.height);
 		var data = new Uint8ClampedArray(img.data);
 		var arr = [];
+
+
+		var imdata = this.ctx.createImageData(1,1);
+		this.setAs(imdata.data, this.BLACK);
+		var imdata2 = this.ctx.createImageData(1,1);
+		this.setAs(imdata2.data, this.WHITE);
+
 		for (var i = 0; i < this.width*this.height*4; i += 4) {
 			var currPix = [data[i], data[i+1], data[i+2], data[i+3]];
 			if (this.pixEqual(currPix, this.WHITE)) {
-				var imdata = this.ctx.createImageData(1,1);
-				this.setAs(imdata.data, this.BLACK);
+				
 				this.ctx.putImageData(imdata, i/4%this.width, i/4/this.height);
 				
-
-				var imdata2 = this.ctx.createImageData(1,1);
-				this.setAs(imdata2.data, this.WHITE);
 				//right
 				if (!(i/4%this.width >= this.width)) {
-					this.ctx.putImageData(imdata2, (i/4%this.width)+1,i/4/this.height);
+					var right_x = (i/4%this.width)+1;
+					var right_y = i/4/this.height;
+					arr.push([right_x, right_y]);
 				}
 				//left
 				if (!(i/4%this.width <= 0)) {
-					this.ctx.putImageData(imdata2, i/4%this.width-1,i/4/this.height);
+					var left_x = i/4%this.width-1;
+					var left_y = i/4/this.height;
+					arr.push([left_x, left_y]);
 				}
 				//top
 				if (!(i/4 <= this.width)) {
-					this.ctx.putImageData(imdata2, i/4%this.width,i/4/this.height-1);
+					var top_x = i/4%this.width;
+					var top_y = i/4/this.height-1;
+					arr.push([top_x, top_y]);
 				}
 				//bottom
 				if (!(i/4/this.height >= this.height)) {
-					this.ctx.putImageData(imdata2, i/4%this.width,i/4/this.height+1);
+					var bot_x = i/4%this.width;
+					var bot_y = i/4/this.height+1;
+					arr.push([bot_x, bot_y]);
 				}
 			}
 		}
-		//console.log([data[0], data[1], data[2], data[3]]);
+		for (var i = 0; i < arr.length; i++) {
+			this.ctx.putImageData(imdata2, arr[i][0], arr[i][1]);
+		}
 	}
 
 	this.pixEqual = function(arr, arr2) {
@@ -95,6 +109,11 @@ function Rippler() {
 			arr[i] = arr2[i];
 		}
 	}
+
+	//convert RGBA to image data structs
+	this.WHITE_DATA = this.setAs(this.ctx.createImageData(1,1), this.WHITE); 
+	this.BLACK_DATA = this.setAs(this.ctx.createImageData(1,1), this.BLACK);
+
 
 	this.loop = function(self) {
 		//console.log("l");
