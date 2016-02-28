@@ -11,6 +11,7 @@ var pakdee = false;
 var theo = false;
 var resumeThere = false;
 var jonThere = false;
+var ripple_on = false;
 
 
 function show_image(src, target, width, height, alt, className, id) {
@@ -48,8 +49,12 @@ function jon() {
 		init();
 	}
 	else {
-		var club = document.getElementById("sealClubbinJon");
-		club.parent.removeChild(club);
+		GAME_OVER = true;
+		var club = document.getElementById("sealWrapper");
+		club.removeChild(document.getElementById("sealClubbinJon"));
+		club_clone = club.cloneNode(false);
+		document.getElementById("main").removeChild(club);
+		//document.getElementById("main").appendChild(club_clone);
 	}
 	jonThere = !jonThere;
 }
@@ -158,4 +163,18 @@ function deleteTheoCanvas() {
 	var theoDiv = document.getElementById("theoWrapper");
 	theoDiv.removeChild(document.getElementById("theoCanvas"));
 	// theoDiv.removeChild(document.getElementById("theoCanvas2"));
+}
+
+function ripplef() {
+	if (ripple_on) {
+		deleteRippler();
+	} else {
+		var ripple = new Rippler();
+	}
+	ripple_on = !ripple_on;
+}
+
+function deleteRippler() {
+	var rippleDiv = document.getElementById("rippleWrapper");
+	rippleDiv.removeChild(document.getElementById("ripple"));
 }

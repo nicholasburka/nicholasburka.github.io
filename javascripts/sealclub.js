@@ -1,10 +1,9 @@
 //SEALCLUBBIN' JON - THE GAME
-//COPYRIGHT 2014 NICHOLAS BURKA
+//COPYRIGHT 2014-2016 NICHOLAS BURKA
 //WITH HELP FROM PAKDEE, PAUL, THEO AND OTHERS
 
 //TO DO:
 //  make Jon able to crouch / make image of Jon crouching
-//  multiple seals
 //  make score visible
 //  make seals die
 
@@ -15,8 +14,9 @@
 //DONE:
 //	change setInterval to requestanimationframe √
 //  change collisions to reflect direction of collision and alter dx, dy accordingly √ sort  of
-//  make Jon's face light up when he hits a seal √ (sort of)
-
+//  make Jon's face light up when he hits a seal √
+//  multiple seals √
+//  image preloading √
 
 var canvas,
 	ctx,
@@ -28,7 +28,8 @@ var canvas,
 	loaded = false,
 	numImgs = 0,
 	numLoaded = 0;
-	IMG_FILEPATH = "img/seal-club-assets/"; //const
+	IMG_FILEPATH = "imgs/seal-club-assets/",
+	GAME_OVER = false; //const
 
 if (!Math.sign) {
 	var sign = function(x) {return x>0?1:x<0?-1:x;};
@@ -80,21 +81,21 @@ function ImageLoader(arr) {
 }
 
 
-function Player() {
+function Player(spec) {
 	//IMAGES
 	var img = new Image();
 	img.src = IMG_FILEPATH + "jon-bod.png";
-	this.body = img;
+	this.body = spec.body;
 	var army = new Image();
 	army.src = IMG_FILEPATH + "jon-arm-club.png";
-	this.arm = army;
+	this.arm = spec.arm;
 	var img2 = new Image();
 	img2.src = IMG_FILEPATH + "jon-bod-happy.png";
-	this.bodyHappy = img2;
+	this.bodyHappy = spec.bodyHappy;
 	this.currentBody = "body";
 	var img3 = new Image();
 	img3.src = IMG_FILEPATH + "dot.png";
-	this.dot = img3;
+	this.dot = spec.dot;
 
 	//MOVEMENT
 	//amount x should change per tick
@@ -280,8 +281,9 @@ function Player() {
 
 	//makes player.armAngle number of radians to rotate image on mousemove
 	this.updateArmAngle = function(e) {
-		var x = e.pageX;
-		var y = e.pageY;
+		var rect = document.getElementById("sealClubbinJon").getBoundingClientRect();
+		var x = e.clientX - rect.left;
+		var y = e.clientY - rect.top;
 		var rad = Math.atan2((player.bodyY+player.ARMYBUFFER/SCALE-y),(player.bodyX+player.ARMXBUFFER/SCALE+player.arm.width/SCALE-x));
 		player.armAngle = rad;
 		updateCollisionPoint();
@@ -336,11 +338,9 @@ function Player() {
 };
 
 
-function Seal() {
+function Seal(spec) {
 
-	var img = new Image();
-	img.src = IMG_FILEPATH + "seal.png";
-	this.img = img;
+	this.img = spec.seal;
 
 	this.sealScale = 2;
 	this.x = 0;
@@ -464,9 +464,22 @@ function init() {
 	div.appendChild(canvas);
 	ctx = canvas.getContext("2d");
 
-	player = new Player();
-	var testSeal = new Seal();
-	var seal2 = new Seal();
+	var images = ["jon-bod.png", "jon-arm-club.png", "jon-bod-happy.png", "dot.png", "seal.png",]
+	images = images.map(function(x) {return IMG_FILEPATH + x;})
+	var loader = new Preloader(images, init_done);
+};
+
+function init_done(image_arr) {
+	var image_spec = {}
+	image_spec["body"] = image_arr[0];
+	image_spec["arm"] = image_arr[1];
+	image_spec["bodyHappy"] = image_arr[2];
+	image_spec["dot"] = image_arr[3];
+	image_spec["seal"] = image_arr[4];
+
+	player = new Player(image_spec);
+	var testSeal = new Seal(image_spec);
+	var seal2 = new Seal(image_spec);
 
 	entities = [player, testSeal, seal2];
 
@@ -527,7 +540,10 @@ function collisionCheck() {
 };
 
 function gameLoop() {
-	if (requestAnimationFrame) {
+	if (GAME_OVER) {
+		return;
+	}
+	else if (requestAnimationFrame) {
 		setTimeout(function() {
         	requestAnimationFrame(gameLoop);
    		}, 1000 / FPS);
