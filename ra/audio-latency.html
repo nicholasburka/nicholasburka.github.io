@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My experiment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./jspsych-5.0.3/jspsych.js"></script>
+    <script src="./jspsych-5.0.3/plugins/jspsych-text.js"></script>
+    <script src="./jspsych-5.0.3/plugins/jspsych-single-audio.js"></script>
+    <link href="./jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body>
+  </body>
+  <script>
+
+  /* define welcome message block */
+  var welcome_block = {
+    type: "text",
+    text: "Welcome to the experiment. Press any key to begin."
+  };
+  /* define test block */
+
+  var test_stimuli = [
+    {
+      stimulus: "440.mp3",
+    }
+  ];
+
+  var all_trials = jsPsych.randomization.repeat(test_stimuli, 100);
+
+  var test_block = {
+    type: "single-audio",
+    timing_response: 1500,
+    timing_post_trial: 1500,
+    timeline: all_trials
+  };
+
+  /* define debrief block */
+
+  var debrief_block = {
+    type: "text",
+    text: function() {
+      var subject_data = getSubjectData();
+      return "<p>You responded correctly on "+subject_data.accuracy+"% of "+
+      "the trials.</p><p>Your average response time was <strong>" +
+      subject_data.rt + "ms</strong>. Press any key to complete the "+
+      "experiment. Thank you!</p>";
+    }
+  };
+
+  /* create experiment timeline array */
+  var timeline = [];
+  timeline.push(welcome_block);
+  timeline.push(test_block);
+  timeline.push(debrief_block);
+
+  /* start the experiment */
+  jsPsych.init({
+    timeline: timeline,
+    on_finish: function() {
+      jsPsych.data.displayData();
+    }
+  });
+</script>
+</html>
