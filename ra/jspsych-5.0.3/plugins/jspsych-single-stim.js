@@ -47,6 +47,8 @@ jsPsych.plugins["single-stim"] = (function() {
       }));
     }
 
+<<<<<<< HEAD
+=======
     /////this makes the parallel port call
     if (jsPsych.pluginAPI.hardware) {
       jsPsych.pluginAPI.hardware({
@@ -57,6 +59,7 @@ jsPsych.plugins["single-stim"] = (function() {
     }
     ///////
 
+>>>>>>> master
     //show prompt if there is one
     if (trial.prompt !== "") {
       display_element.append(trial.prompt);

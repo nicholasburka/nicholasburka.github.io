@@ -587,9 +587,12 @@ var jsPsych = (function() {
     $('#jspsych-progressbar-inner').css('width', progress.percent_complete + "%");
   }
 
+<<<<<<< HEAD
+=======
   //Leave a trace in the DOM that jspsych was loaded
   document.documentElement.setAttribute('jspsych', 'present');
 
+>>>>>>> master
   return core;
 })();
 
@@ -1572,6 +1575,8 @@ jsPsych.pluginAPI = (function() {
     });
   }
 
+<<<<<<< HEAD
+=======
   /**
    * Allows communication with user hardware through our custom Google Chrome extension + native C++ program
    * @param    {object}  mess  The message to be passed to our extension, see its documentation for the expected members of this object.
@@ -1596,6 +1601,7 @@ jsPsych.pluginAPI = (function() {
    module.hardwareConnected = true;
   })
 
+>>>>>>> master
   return module;
 })();
 
