@@ -15,7 +15,11 @@
   /* define welcome message block */
   var welcome_block = {
     type: "text",
+<<<<<<< HEAD
     text: "Welcome to the experiment. Press any key to begin."
+=======
+    text: "Press any key to begin."
+>>>>>>> master
   };
   /* define test block */
 
@@ -25,7 +29,11 @@
     }
   ];
 
+<<<<<<< HEAD
   var all_trials = jsPsych.randomization.repeat(test_stimuli, 100);
+=======
+  var all_trials = jsPsych.randomization.repeat(test_stimuli, 10);
+>>>>>>> master
 
   var test_block = {
     type: "single-stim",
@@ -39,11 +47,15 @@
   var debrief_block = {
     type: "text",
     text: function() {
+<<<<<<< HEAD
       var subject_data = getSubjectData();
       return "<p>You responded correctly on "+subject_data.accuracy+"% of "+
       "the trials.</p><p>Your average response time was <strong>" +
       subject_data.rt + "ms</strong>. Press any key to complete the "+
       "experiment. Thank you!</p>";
+=======
+      return "<p>Run complete!</p>";
+>>>>>>> master
     }
   };
 
@@ -55,10 +67,14 @@
 
   /* start the experiment */
   jsPsych.init({
+<<<<<<< HEAD
     timeline: timeline,
     on_finish: function() {
       jsPsych.data.displayData();
     }
+=======
+    timeline: timeline
+>>>>>>> master
   });
 </script>
 </html>
