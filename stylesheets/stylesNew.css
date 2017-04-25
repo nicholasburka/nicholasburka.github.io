@@ -5,11 +5,29 @@
   color: #FFFFFF;
 }
 
+header {
+  text-decoration: underline;
+  color: #00FFFF;
+}
+
 #life {
   background: #FF00FF;
   color: #000000;
   font-family: monospace;
-  margin-left: 10px;
+  margin-left: 0px;
+}
+
+p {
+}
+
+h2 {
+  margin-left: 0px;
+  margin-top: 10px;
+  color: #550000;
+}
+
+#other {
+  margin-top: 70px;
 }
 
 #life a {
@@ -26,6 +44,7 @@
 
 .view {
   /* background: #FFFFFF; */
+  margin-left: 10px;
 }
 
 h1 {
@@ -44,9 +63,75 @@ h1:hover {
   transform: skewX(-13deg);
 }
 
-#pakbutton {
+#aboutme {
+  display: none;
+  color: #00FFFF;
+}
+
+h1:hover + #aboutme {
+  display: block;
+}
+
+form, img {
   margin-left: 10px;
   margin-top: 10px;
+  /*z-index: 1;*/
+}
+
+li {
+  margin-top: 10px;
+}
+
+ul {
+    list-style: square outside none;
+    list-style-image: url(imgs/flowers1.png);
+}
+
+canvas {
+  background: #FFFFFF;
+  margin-left: 10px;
+  margin-top: 10px;
+  z-index: 0;
+  /*-moz-animation-name: dropHeader;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-duration: 0.5s;
+
+    -webkit-animation-name: dropHeader;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.5s;
+
+    animation-name: dropHeader;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.3s;
+}
+@-moz-keyframes dropHeader {
+    0% {
+        -moz-transform: translateY(-40px);
+    }
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+@-webkit-keyframes dropHeader {
+    0% {
+        -webkit-transform: translateY(-40px);
+    }*/
+}
+
+.blogpost {
+  text-align: center;
+  width: 80%;
+  max-width:80%;
+  word-wrap:break-word;
+  /*margin-left: auto;
+  margin-right: auto;*/
+}
+
+.date {
+  color: #55AAAA;
 }
 
 .pakdee {

@@ -3,10 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description=" content="Nicholas Burka is an artificial intelligence enthusiast, programmer, and student of Cognitive Science. This is his personal webpage.">
     <title>NBURKA</title>
     <link rel="stylesheet" href="stylesheets/reset.css">
     <link rel="stylesheet" href="stylesheets/stylesNew.css">
     <script src="javascripts/script.js"></script>
+    <script src="javascripts/preloader.js"></script>
+    <script src="javascripts/interestingenglish.js"></script>
+    <script src="javascripts/sealclub.js"></script>
+    <script src="javascripts/ripple.js"></script>
+    <script type='text/javascript' src='https://api.stackexchange.com/js/2.0/all.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,18 +21,86 @@
   <body>
     <div class="wrapper" id="wrapper">
       <header>
-        <h1>Nicholas Burka</h1>
-<pre><code id="life">do {<br>   this.<a href="https://www.youtube.com/watch?v=NcFaVfTDWcs" target="_blank">live()</a>;<br>} while (alive);
-</code></pre>
+        <h1>Nicholas Burka</h1> 
+        <!--
+        <div id="aboutme">
+          <form> <input id="aboutme" type="button" value="About Me" onclick="aboutMe();">About Me</form>
+        </div>-->
+      </header>
 
-        <!-- <img class="pakdee" src="imgs/pak1.jpg" alt="Pakdee poses with two friends.">
-        <img class="pakdee" src="imgs/pak2.jpg" alt="Pakdee poses with two friends.">
-        <img class="pakdee" src="imgs/pak3.jpg" alt="Pakdee poses with two friends."> -->
-        <form> <input  id="pakbutton" type="button" value="See Pakdee" onclick="show_pakdees();"></form>
+      <div id="main">
+        <h2>Main</h2>
+
+        <div id="resume">
+          <form><input type="button" value="Resume" onclick="resume();"></form>
+        </div>
+
+        <div id="englishHolder">
+          <form> <input id="englishButton" type="button" value="Latest English language discussion" onclick="english();"></form>
+          <div id="interestingEnglish"></div>
+        </div>
+
+        <div id="blog">
+          <form> <input id="button" type="button" value="Blog" onclick="blog();"></form>
+        </div>
+
+        <!--<div id="rippleWrapper">
+          <form><input id="rippleButton" type="button" value="Rippler" onclick="ripplef();"></form>
+        </div>-->
+
+        <div id="sealWrapper">
+          <form> <input id="sealButton" type="button" value="Seal Clubbin' Jon" onclick="jon();"></form>
+        </div>
+
+      </div>
+
+      <div id="other">
+        <h2>Other</h2>
+
+        <div id="theoWrapper"><span id="theoSpan">
+          <form> <input id="theo" type="button" value="Theodore Anthony Naylor" onclick="theotime();"></form>
+        </span></div>
+
+        <div id="pakdeeWrapper"><span>
+          <form> <input  id="pakbutton" type="button" value="See Pakdee" onclick="show_pakdees();"></form>
+        </span></div>
+
         <p class="view"><a href="https://github.com/nicholasburka" target="_blank"><br>View My GitHub Profile</a></p>
 
-      </header>
-      
+      </div>
+
+<!--
+      <div id="blog">
+          <div class="blogpost">
+              <h2>Future Murmurs: Constructivist Approaches to Learning Biology</h2>
+              <p>An assigned reading for my Cognitive Science class was a detailed 
+                description of the anatomy of the eye, and more 
+                specifically the human retina. As I struggled to 
+                abstract the idea of glutamate flow to a conceptual level, 
+                I was reminded of a recently graduated alumnus' senior thesis 
+                in Cognitive Science in which they attempted to program a single 
+                node in a model of the brain and a paper by one of my professor's
+                on teaching the programming language concept of "Garbage Collection"
+                by attempting to apply the common Computer Science constructivist
+                philosophy of teaching. I wonder if one day, biology could
+                be taught in such a constructive way, where each student,
+                rather than simply investigating organs (which is surely
+                useful) was forced to construct one. </p>
+          </div>
+          <div class="blogpost">
+              <h2>Rant: Working at Amazon or Google or especially Facebook
+                is as morally bankrupt as working in finance</h2>
+              <p>Facebook amasses data about people's personal lives and sells it.
+                Google loves information so much that it does not mind taking all of
+                yours and sharing it. Amazon, while beneficial for the consumer, is
+                a cutthroat corporation which runs on two instincts: power (market share)
+                and greed (profit motive). Jeff Bezos is a megalomaniac; Mark Zuckerberg
+                an emboldened adolescent; and Gary Schmidt just wants to watch the world
+                burn. </p>
+          </div>
+      </div>
+    -->
+
       <footer>
       </footer>
     </div>
